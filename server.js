@@ -16,7 +16,7 @@ app.get('/article-two',function(req,res){
     res.sendFile('article two requested');
 });
 
-app.get('/artice-three',function(req,res){
+app.get('/article-three',function(req,res){
     res.sendFile('article three requested');
 });
 
