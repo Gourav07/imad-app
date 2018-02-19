@@ -1,3 +1,4 @@
+
 var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
@@ -17,7 +18,7 @@ app.get('/article-two',function(req,res){
 });
 
 app.get('/article-three',function(req,res){
-    res.send('article three requested');
+    s.sendFile(path.join(__dirname, 'ui', 'article-three.html'));
 });
 
 
