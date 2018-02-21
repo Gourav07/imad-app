@@ -4,7 +4,7 @@ element.innerHTML="new value";
 var img=document.getElementById('modi');
 var marginLeft=0;
 function moveRight(){
-    marginLeft=marginLeft+10;
+    marginLeft=marginLeft+1;
     img.style.marginLeft=marginLeft+'px';
     
 }
