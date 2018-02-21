@@ -5,7 +5,8 @@ var path = require('path');
 
 var app = express();
 app.use(morgan('combined'));
-var articleOne={
+var articles={
+    articleOne:{
  title:'article-one',
  heading:'article-one',
  date:'5 sept 2000',
@@ -15,6 +16,27 @@ var articleOne={
     <p>hello this is artcle-one hello this is artcle-one hello this is artcle-one hello this is artcle-one hello this is artcle-one </p> 
  `
  
+},
+    articleTwo:{
+         title:'article-two',
+ heading:'article-two',
+ date:'5 sept 2000',
+ content:`
+   <p>hello this is artcle-two hello this is artcle-one hello this is artcle-one hello this is artcle-one hello this is artcle-one </p>
+    <p>hello this is artcle-two hello this is artcle-one hello this is artcle-one hello this is artcle-one hello this is artcle-one </p>
+    <p>hello this is artcle-two hello this is artcle-one hello this is artcle-one hello this is artcle-one hello this is artcle-one </p> 
+ `
+    },
+    articleThree:{
+         title:'article-three',
+ heading:'article-three',
+ date:'5 sept 2000',
+ content:`
+   <p>hello this is artcle-three hello this is artcle-one hello this is artcle-one hello this is artcle-one hello this is artcle-one </p>
+    <p>hello this is artcle-three hello this is artcle-one hello this is artcle-one hello this is artcle-one hello this is artcle-one </p>
+    <p>hello this is artcle-three hello this is artcle-one hello this is artcle-one hello this is artcle-one hello this is artcle-one </p> 
+ `
+    }
 }
 function createTemplate(data){
 var title=data.title;
@@ -52,8 +74,9 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-app.get('/article-one',function(req,res){
-  res.send(createTemplate(articleOne));
+app.get('/:articleName',function(req,res){
+    var articleName=req.param.articleName;
+  res.send(createTemplate(articles[articleName]));
 });
 app.get('/article-two',function(req,res){
     res.sendFile(path.join(__dirname, 'ui', 'article-two.html'));
