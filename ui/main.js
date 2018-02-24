@@ -18,8 +18,7 @@ button.onclick=function(){
 
 var submit=document.getElementById('submit_btn');
 submit.onclick=function(){
-    var nameInput=document.getElementById('name');
-var name=nameInput.value;
+ 
       var request=new XMLHttpRequest();
     request.onreadystatechange=function(){
       if(request.readyState==XMLHttpRequest.DONE){
@@ -35,6 +34,8 @@ var name=nameInput.value;
           }
       }  
     };
+       var nameInput=document.getElementById('name');
+var name=nameInput.value;
     request.open('GET','http://gaurav07sharma1996.imad.hasura-app.io/submit-name?name='+name,true);
     request.send(null);
 };
